@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(9, 9, 56);
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    width: 300px;
+    background: #626262;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem 8px;
+    margin-bottom: 1rem;
+}
+
+.submit input {
+    background-color: blue;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.submit input:hover {
+    background-color: green;
+    color: #000;
+    cursor: pointer;
+}
