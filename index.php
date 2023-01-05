@@ -8,8 +8,46 @@
     <title>Login with PHP</title>
 </head>
 <body>
+    <?php
+        if(isset($_POST["submit"])) {
+            $fullName = $_POST["fullname"];
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+            $passwordRepeat = $_POST["repeat-password"];
+
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            $errors = array();
+            
+            if(empty($fullName) OR empty($email) OR empty($password) OR empty($passwordRepeat)) {
+                array_push($errors, "All Fields are required");
+            }else {
+                echo "Welcome to your dashboard $fullName <br>";
+                echo "Your email is: $email";
+            }
+
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                array_push($errors, "Email is not Valid");
+            }
+
+            if(strlen($password) < 8 ) {
+                array_push($errors, "Password must be atleast 8 characters long!");
+            }
+
+            if($password !== $passwordRepeat) {
+                array_push($errors, "Password must match bro!");
+            }
+
+            if (count($errors)>0) {
+                foreach ($errors as $error) {
+                    echo "<div class='warning'>$error</div>";
+                }
+            }else {
+                require_once "database.php";
+            }
+        }
+    ?>
     <div class="container">
-        <form action="login.php" method="post">
+        <form action="index.php" method="post">
             <div class="form-group">
                 <input type="text" name="fullname" placeholder="Full Name:"/>
             </div>

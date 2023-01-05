@@ -41,3 +41,9 @@ form {
     color: #000;
     cursor: pointer;
 }
+
+.warning {
+    background-color: red;
+    text-align: center;
+    padding: 5px;
+}
