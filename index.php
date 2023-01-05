@@ -43,6 +43,19 @@
                 }
             }else {
                 require_once "database.php";
+
+                $sql = "INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)";
+                $stmt = mysqli_stmt_init($conn);
+                $preparedStmt = mysqli_stmt_prepare($stmt, $sql);
+
+                if($preparedStmt) {
+                    mysqli_stmt_bind_param($stmt, "sss", $fullName, $email, $passwordHash);
+                    mysqli_stmt_execute($stmt);
+
+                    echo "<div>You are Registered Bro</div>";
+                }else {
+                    die("Something went Wrong Brov!!");
+                }
             }
         }
     ?>
