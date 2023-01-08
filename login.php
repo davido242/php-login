@@ -50,6 +50,9 @@
                 <input type="submit" name="login" value="Login"/>
             </div>
         </form>
+        <div class="logout-div">
+            Not Registered?<a href="index.php" class="logout">Register here</a>
+        </div>
     </div> 
 </body>
 </html>

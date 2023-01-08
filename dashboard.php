@@ -20,7 +20,9 @@
             // echo $name;
             echo "<h1>Dashboard</h1>";
         ?>
-
+        <div class="logout-div">
+            <a href="logout.php" class="logout">Logout</a>
+        </div>
     </div>
 </body>
 </html>

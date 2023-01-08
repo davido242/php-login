@@ -90,6 +90,9 @@
                 <input type="submit" name="submit" value="Submit"/>
             </div>
         </form>
+        <div class="logout-div">
+            Already Registered?<a href="login.php" class="logout">Login</a>
+        </div>
     </div>
     
 </body>

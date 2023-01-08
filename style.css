@@ -51,3 +51,13 @@ form {
     text-align: center;
     padding: 5px;
 }
+.logout {
+    background: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.logout-div {
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
