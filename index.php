@@ -37,13 +37,20 @@
                 array_push($errors, "Password must match bro!");
             }
 
+            require_once "database.php";
+            
+            $sql = "SELECT * FROM users WHERE email = '$email'";            
+            $result = mysqli_query($conn, $sql);
+            $rowCount = mysqli_num_rows($result);
+            if($rowCount > 0) {
+                array_push($errors, "Email already Exists");
+            }
+
             if (count($errors)>0) {
                 foreach ($errors as $error) {
                     echo "<div class='warning'>$error</div>";
                 }
             }else {
-                require_once "database.php";
-
                 $sql = "INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 $preparedStmt = mysqli_stmt_prepare($stmt, $sql);

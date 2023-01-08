@@ -27,6 +27,10 @@ form {
     padding: 1rem 8px;
     margin-bottom: 1rem;
 }
+.login input {
+    width: auto;
+    padding: 12px 2rem;
+}
 
 .submit input {
     background-color: blue;
