@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['user'])) {
+        header("Location: dashboard.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +21,20 @@
 
             require_once 'database.php';
             $sql = "SELECT * FROM users WHERE email = '$email'";
-            $result = mysqli_query($con, $sql);
-            $user = mysqli_fetch_array($result, MYSCLI_ASSOC);
+            $result = mysqli_query($conn, $sql);
+            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
             if($user) {
                 if(password_verify($password, $user['password'])) {
-                    header("location: dashbord.php");
+                    session_start();
+                    $_SESSION['user'] = 'yes';
+
+                    header("Location: dashboard.php");
                     die();
+                }else {
+                    echo "<div>Passoword Doesnt Match brov!!</div>";
                 }
             }else {
-                echo "<div>Email Doesnt match bro!</div>"
+                echo "<div>Email Doesnt match bro!</div>";
             }
         }
     ?>

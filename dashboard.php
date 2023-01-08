@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user'])) {
+        header("Location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +14,12 @@
     <title>User Dashboard</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Dashboard</h1>
+    <div class="">
+        <?php
+            require_once 'database.php';
+            // echo $name;
+            echo "<h1>Dashboard</h1>";
+        ?>
 
     </div>
 </body>
